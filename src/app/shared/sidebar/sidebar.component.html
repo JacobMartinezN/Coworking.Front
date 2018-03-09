@@ -1,0 +1,26 @@
+<!-- Sidebar -->
+<ul class="nav navbar-nav side-nav" id="sidebar">
+
+    <li class="collapsed-content">
+        <ul>
+            <li class="search">
+                <!-- Collapsed search pasting here at 768px -->
+            </li>
+        </ul>
+    </li>
+
+    <li class="navigation" id="navigation">
+        <a href="#" class="sidebar-toggle" data-toggle="#navigation">Navigation<i class="fa fa-angle-up"></i></a>
+
+        <ul class="menu">
+
+            <li *ngFor="let item of menu" [routerLinkActive]="item.active" [class]="item.class">
+                <a [routerLink]="[item.url]" routerLinkActive="active" [class]="item.classA" data-toggle="dropdown"><i [class]="item.icono"></i> {{item.titulo}} </a>
+                <ul *ngIf="item.submenu && item.submenu.length>0" class="dropdown-menu">
+                    <li *ngFor="let subitem of item.submenu" routerLinkActive="active"><a [routerLink]="subitem.url"><i class="fa fa-caret-right"></i> {{subitem.titulo}}</a></li>
+                </ul>
+            </li>
+        </ul>
+    </li>
+
+</ul>
